@@ -1,19 +1,24 @@
-const arr = [];
-const timeArr = [];
+var arr = [];
+var timeArr = [];
 
-chrome.storage.local.get(['key'], function(timeArr) {
-	console.log('Value currently is ' + timeArr.key);
+chrome.storage.local.get("key", function(value) {
+	console.log('Initial Value currently is ' + value.key);
+	arr = value.key;
+});
+chrome.storage.local.get("tkey", function(value) {
+	console.log('Value currently is ' + value.tkey);
+	timeArr = value.tkey;
 });
 
-function a (){
+console.log(arr);
+console.log(timeArr);
+
+function a () {
 	chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 		let url = tabs[0].url;
-		console.log(url);
 		let url2 = url.split('/', 3).join('/');
-		console.log(url2);
-		document.getElementById('urltext').innerHTML = url2;
 		
-		console.log("test");//.indexOf(url2));
+		
 		if (arr.includes(url2)) {
 			timeArr[arr.indexOf(url2)] += 5;
 		}
@@ -22,17 +27,17 @@ function a (){
 			timeArr.unshift(5);
 		}
 
-		chrome.storage.local.set({key: arr}, function() {
+		document.getElementById('urltext').innerHTML += (url2 + timeArr[arr.indexOf(url2)] + "<br><br>") ;
+
+		chrome.storage.local.set({"key": arr}, function() {
 			console.log('Value is set to ' + arr);
 		});
-		  
-		
-		//timeArr[0] += 5000;
-		
-		// use `url` here inside the callback because it's asynchronous!
+		chrome.storage.local.set({"tkey": timeArr}, function() {
+			console.log('Value is set to ' + timeArr);
+		});
+
 	});
-	console.log(arr);
-	console.log(timeArr);
+
 	setTimeout(a, 5000);
 }
 a();
