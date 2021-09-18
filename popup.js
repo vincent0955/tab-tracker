@@ -16,7 +16,7 @@ console.log(timeArr);
 function a () {
 	chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 		let url = tabs[0].url;
-		let url2 = url.split('/', 3).join('/');
+		let url2 = url.split('/', 3)[2];
 		
 		
 		if (arr.includes(url2)) {
@@ -26,10 +26,10 @@ function a () {
 			arr.unshift(url2);
 			timeArr.unshift(5);
 		}
-		
+
 		document.getElementById('urltext').innerHTML = "";
 		for (let i = 0; i < arr.length; i++) {
-			document.getElementById('urltext').innerHTML += (arr[i] + timeArr[i] + "<br><br>") ;
+			document.getElementById('urltext').innerHTML += (arr[i] + " " + timeArr[i] + "<br>") ;
 		}
 		
 
