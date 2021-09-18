@@ -1,23 +1,31 @@
 const arr = [];
 const timeArr = [];
+
+chrome.storage.local.get(['key'], function(timeArr) {
+	console.log('Value currently is ' + timeArr.key);
+});
+
 function a (){
 	chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
 		let url = tabs[0].url;
 		console.log(url);
 		let url2 = url.split('/', 3).join('/');
 		console.log(url2);
-		document.getElementById('url').href = url2;
 		document.getElementById('urltext').innerHTML = url2;
 		
-		console.log(arr.indexOf(url2));
-		if (arr.includes(url2)){
-			timeArr[arr.indexOf(url2)] += 5000;
+		console.log("test");//.indexOf(url2));
+		if (arr.includes(url2)) {
+			timeArr[arr.indexOf(url2)] += 5;
 		}
-		else{
+		else {
 			arr.unshift(url2);
-			timeArr.unshift(5000);
+			timeArr.unshift(5);
 		}
-		
+
+		chrome.storage.local.set({key: arr}, function() {
+			console.log('Value is set to ' + arr);
+		});
+		  
 		
 		//timeArr[0] += 5000;
 		
