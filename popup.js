@@ -10,6 +10,7 @@ chrome.storage.local.get("tkey", function(value) {
 	timeArr = value.tkey;
 });
 
+
 console.log(arr);
 console.log(timeArr);
 
@@ -29,9 +30,8 @@ function a () {
 
 		document.getElementById('urltext').innerHTML = "";
 		for (let i = 0; i < arr.length; i++) {
-			document.getElementById('urltext').innerHTML += (arr[i] + " " + timeArr[i] + "<br>") ;
+			document.getElementById('urltext').innerHTML += (arr[i] + " " + ~~(timeArr[i] / 3600) + "h " + ~~((timeArr[i] % 3600) / 60) + "m " + timeArr[i] % 60 + "s <br>") ;
 		}
-		
 
 		chrome.storage.local.set({"key": arr}, function() {
 			console.log('Value is set to ' + arr);
