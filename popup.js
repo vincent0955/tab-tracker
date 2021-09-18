@@ -20,11 +20,11 @@ function a () {
 		
 		
 		if (arr.includes(url2)) {
-			timeArr[arr.indexOf(url2)] += 5;
+			timeArr[arr.indexOf(url2)] += 1;
 		}
 		else {
 			arr.unshift(url2);
-			timeArr.unshift(5);
+			timeArr.unshift(1);
 		}
 
 		document.getElementById('urltext').innerHTML = "";
@@ -42,6 +42,6 @@ function a () {
 
 	});
 
-	setTimeout(a, 5000);
+	setTimeout(a, 1000);
 }
 a();
