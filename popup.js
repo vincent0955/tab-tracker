@@ -26,8 +26,12 @@ function a () {
 			arr.unshift(url2);
 			timeArr.unshift(5);
 		}
-
-		document.getElementById('urltext').innerHTML += (url2 + timeArr[arr.indexOf(url2)] + "<br><br>") ;
+		
+		document.getElementById('urltext').innerHTML = "";
+		for (let i = 0; i < arr.length; i++) {
+			document.getElementById('urltext').innerHTML += (arr[i] + timeArr[i] + "<br><br>") ;
+		}
+		
 
 		chrome.storage.local.set({"key": arr}, function() {
 			console.log('Value is set to ' + arr);
