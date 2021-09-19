@@ -18,8 +18,7 @@
   ],
 
   "background": {
-    "service_worker": "background.js",
-    "persistant": true
+    "service_worker": "background.js"
   }
 
 }
