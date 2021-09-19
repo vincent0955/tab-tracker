@@ -13,11 +13,13 @@
     "tabs",
     "activeTab",
     "storage",
-    "idle"
+    "idle",
+    "alarms"
   ],
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "persistant": true
   }
 
 }
