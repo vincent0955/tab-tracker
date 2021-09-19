@@ -1,16 +1,16 @@
-
+var arr = [];
+var timeArr = [];
 function a () {
     chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
         let url = tabs[0].url;
         let url2 = url.split('/', 3)[2];
-        var arr = [];
-        var timeArr = [];
-        chrome.storage.local.get("key", function(value) {
-            console.log('Initial Value currently is ' + value.key);
-            arr = value.key;
-            chrome.storage.local.get("tkey", function(value) {
-                console.log('Value currently is ' + value.tkey);
-                timeArr = value.tkey;
+        
+        // chrome.storage.local.get("key", function(value) {
+        //     console.log('Initial Value currently is ' + value.key);
+        //     arr = value.key;
+        //     chrome.storage.local.get("tkey", function(value) {
+        //         console.log('Value currently is ' + value.tkey);
+        //         timeArr = value.tkey;
         
                 if (arr.includes(url2)) {
                     timeArr[arr.indexOf(url2)] += 1;
@@ -27,8 +27,8 @@ function a () {
                     console.log('Value is set to ' + timeArr);
                 });
     
-            });
-        });
+        //     });
+        // });
     })
 }
 
