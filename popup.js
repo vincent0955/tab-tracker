@@ -35,4 +35,14 @@ chrome.storage.onChanged.addListener( ( changes, namespace ) => {
 	main();
 });
 
+document.getElementById( 'notify-reset' ).addEventListener('click', () => {
+	arr = [];
+	timeArr = [];
+	chrome.storage.local.set({"key": arr}, function() {
+	});
+	chrome.storage.local.set({"tkey": timeArr}, function() {
+	});
+} );
+
+
 
