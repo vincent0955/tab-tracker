@@ -12,7 +12,8 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "storage"
+    "storage",
+    "idle"
   ],
 
   "background": {
