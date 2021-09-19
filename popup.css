@@ -11,6 +11,29 @@
     padding: 15px;
 }
 
+.button {
+    font-family: Roboto, system-ui, sans-serif;
+    align-items: center;
+    border: 2px solid #7396ff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-weight: 500;
+    height: 32px;
+    justify-content: center;
+    min-width: 5.14em;
+    outline-width: 0;
+    padding: 8px 16px;
+    position: absolute;
+    user-select: none;
+    background: rgb( 39, 39, 39 );
+    margin: 10px 0 5px 10px;
+    bottom: 20px;
+    right: 30px;
+}
 
 .text {
     text-align: center;
