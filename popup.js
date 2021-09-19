@@ -9,11 +9,20 @@ function main() {
 
 			console.log(arr);
 			console.log(timeArr);
-		
-			document.getElementById('urltext').innerHTML = "";
+
+			var HTML = "";
+
+			HTML = "";
+			HTML += "<table>";
 			for (let i = 0; i < arr.length; i++) {
-				document.getElementById('urltext').innerHTML += (arr[i] + " " + ~~(timeArr[i] / 3600) + "h " + ~~((timeArr[i] % 3600) / 60) + "m " + timeArr[i] % 60 + "s <br>") ;
+				HTML += "<tr>";
+				HTML += ("<td style=\"text-align:left;\">" + arr[i] + "</td> <td style=\"text-align:right;\">" + ~~(timeArr[i] / 3600) + "h " + ~~((timeArr[i] % 3600) / 60) + "m " + timeArr[i] % 60 + "s </td>");
+				HTML += "</tr>";
 			}
+			HTML += "</table>";
+			document.getElementById('urltext').innerHTML = HTML;
+			console.log(document.getElementById('urltext').innerHTML);
+
 		});
 	});
 }
